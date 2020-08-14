@@ -29,151 +29,192 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label openItemCountLabelStart;
+            System.Windows.Forms.Label openItemCountLabelEnd;
+            System.Windows.Forms.Label dueTimeLabel;
+            System.Windows.Forms.Label totalTimeLabel;
+            System.Windows.Forms.Label itemTimeLabel;
             this.dueTime = new System.Windows.Forms.DateTimePicker();
             this.openItemCount = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.oneDown = new System.Windows.Forms.Button();
-            this.reset = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.oneDownButton = new System.Windows.Forms.Button();
+            this.startOverButton = new System.Windows.Forms.Button();
             this.totalTime = new System.Windows.Forms.Label();
             this.itemTime = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.resetItemButton = new System.Windows.Forms.Button();
+            openItemCountLabelStart = new System.Windows.Forms.Label();
+            openItemCountLabelEnd = new System.Windows.Forms.Label();
+            dueTimeLabel = new System.Windows.Forms.Label();
+            totalTimeLabel = new System.Windows.Forms.Label();
+            itemTimeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.openItemCount)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // openItemCountLabelStart
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "We have";
+            openItemCountLabelStart.AutoSize = true;
+            openItemCountLabelStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            openItemCountLabelStart.Location = new System.Drawing.Point(33, 35);
+            openItemCountLabelStart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            openItemCountLabelStart.Name = "openItemCountLabelStart";
+            openItemCountLabelStart.Size = new System.Drawing.Size(113, 29);
+            openItemCountLabelStart.TabIndex = 0;
+            openItemCountLabelStart.Text = "We have";
+            // 
+            // openItemCountLabelEnd
+            // 
+            openItemCountLabelEnd.AutoSize = true;
+            openItemCountLabelEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            openItemCountLabelEnd.Location = new System.Drawing.Point(350, 35);
+            openItemCountLabelEnd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            openItemCountLabelEnd.Name = "openItemCountLabelEnd";
+            openItemCountLabelEnd.Size = new System.Drawing.Size(142, 29);
+            openItemCountLabelEnd.TabIndex = 4;
+            openItemCountLabelEnd.Text = "open items";
+            // 
+            // dueTimeLabel
+            // 
+            dueTimeLabel.AutoSize = true;
+            dueTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dueTimeLabel.Location = new System.Drawing.Point(33, 131);
+            dueTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            dueTimeLabel.Name = "dueTimeLabel";
+            dueTimeLabel.Size = new System.Drawing.Size(170, 29);
+            dueTimeLabel.TabIndex = 5;
+            dueTimeLabel.Text = "to address by";
+            // 
+            // totalTimeLabel
+            // 
+            totalTimeLabel.AutoSize = true;
+            totalTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            totalTimeLabel.Location = new System.Drawing.Point(33, 331);
+            totalTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            totalTimeLabel.Name = "totalTimeLabel";
+            totalTimeLabel.Size = new System.Drawing.Size(237, 29);
+            totalTimeLabel.TabIndex = 8;
+            totalTimeLabel.Text = "In order to finish in:";
+            // 
+            // itemTimeLabel
+            // 
+            itemTimeLabel.AutoSize = true;
+            itemTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            itemTimeLabel.Location = new System.Drawing.Point(33, 446);
+            itemTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            itemTimeLabel.Name = "itemTimeLabel";
+            itemTimeLabel.Size = new System.Drawing.Size(438, 29);
+            itemTimeLabel.TabIndex = 9;
+            itemTimeLabel.Text = "We must move on to the next item in:";
             // 
             // dueTime
             // 
             this.dueTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dueTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dueTime.Location = new System.Drawing.Point(165, 85);
+            this.dueTime.Location = new System.Drawing.Point(248, 131);
+            this.dueTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dueTime.Name = "dueTime";
-            this.dueTime.Size = new System.Drawing.Size(165, 26);
+            this.dueTime.Size = new System.Drawing.Size(246, 35);
             this.dueTime.TabIndex = 1;
             // 
             // openItemCount
             // 
             this.openItemCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.openItemCount.Location = new System.Drawing.Point(107, 21);
+            this.openItemCount.Location = new System.Drawing.Point(160, 32);
+            this.openItemCount.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openItemCount.Name = "openItemCount";
-            this.openItemCount.Size = new System.Drawing.Size(120, 26);
+            this.openItemCount.Size = new System.Drawing.Size(180, 35);
             this.openItemCount.TabIndex = 0;
+            this.openItemCount.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
-            // label3
+            // oneDownButton
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(233, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "open items";
+            this.oneDownButton.Enabled = false;
+            this.oneDownButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.oneDownButton.Location = new System.Drawing.Point(38, 218);
+            this.oneDownButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.oneDownButton.Name = "oneDownButton";
+            this.oneDownButton.Size = new System.Drawing.Size(140, 62);
+            this.oneDownButton.TabIndex = 6;
+            this.oneDownButton.Text = "&1 Down";
+            this.oneDownButton.UseVisualStyleBackColor = true;
+            this.oneDownButton.Click += new System.EventHandler(this.OneDownButton_Click);
             // 
-            // label2
+            // startOverButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "to address by";
-            // 
-            // oneDown
-            // 
-            this.oneDown.Enabled = false;
-            this.oneDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.oneDown.Location = new System.Drawing.Point(48, 142);
-            this.oneDown.Name = "oneDown";
-            this.oneDown.Size = new System.Drawing.Size(116, 40);
-            this.oneDown.TabIndex = 6;
-            this.oneDown.Text = "&1 Down";
-            this.oneDown.UseVisualStyleBackColor = true;
-            this.oneDown.Click += new System.EventHandler(this.OneDown_Click);
-            // 
-            // reset
-            // 
-            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset.Location = new System.Drawing.Point(187, 142);
-            this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(116, 40);
-            this.reset.TabIndex = 7;
-            this.reset.Text = "&Reset";
-            this.reset.UseVisualStyleBackColor = true;
-            this.reset.Click += new System.EventHandler(this.Reset_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(22, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "In order to finish in:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 290);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(305, 20);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "We must move on to the next item in:";
+            this.startOverButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.startOverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startOverButton.Location = new System.Drawing.Point(354, 218);
+            this.startOverButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.startOverButton.Name = "startOverButton";
+            this.startOverButton.Size = new System.Drawing.Size(140, 62);
+            this.startOverButton.TabIndex = 7;
+            this.startOverButton.Text = "&Start";
+            this.startOverButton.UseVisualStyleBackColor = true;
+            this.startOverButton.Click += new System.EventHandler(this.StartOverButton_Click);
             // 
             // totalTime
             // 
+            this.totalTime.Enabled = false;
             this.totalTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTime.Location = new System.Drawing.Point(26, 235);
+            this.totalTime.Location = new System.Drawing.Point(39, 362);
+            this.totalTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalTime.Name = "totalTime";
-            this.totalTime.Size = new System.Drawing.Size(304, 55);
+            this.totalTime.Size = new System.Drawing.Size(456, 85);
             this.totalTime.TabIndex = 10;
             this.totalTime.Text = "0:00:00";
             this.totalTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // itemTime
             // 
+            this.itemTime.Enabled = false;
             this.itemTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemTime.Location = new System.Drawing.Point(26, 310);
+            this.itemTime.Location = new System.Drawing.Point(39, 477);
+            this.itemTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.itemTime.Name = "itemTime";
-            this.itemTime.Size = new System.Drawing.Size(304, 55);
+            this.itemTime.Size = new System.Drawing.Size(456, 85);
             this.itemTime.TabIndex = 11;
             this.itemTime.Text = "0:00:00";
             this.itemTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // resetItemButton
+            // 
+            this.resetItemButton.Enabled = false;
+            this.resetItemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetItemButton.Location = new System.Drawing.Point(196, 218);
+            this.resetItemButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.resetItemButton.Name = "resetItemButton";
+            this.resetItemButton.Size = new System.Drawing.Size(140, 62);
+            this.resetItemButton.TabIndex = 12;
+            this.resetItemButton.Text = "Reset Item";
+            this.resetItemButton.UseVisualStyleBackColor = true;
+            this.resetItemButton.Click += new System.EventHandler(this.ResetItemButton_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.startOverButton;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 379);
+            this.ClientSize = new System.Drawing.Size(544, 583);
+            this.Controls.Add(this.resetItemButton);
             this.Controls.Add(this.itemTime);
             this.Controls.Add(this.totalTime);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.reset);
-            this.Controls.Add(this.oneDown);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(itemTimeLabel);
+            this.Controls.Add(totalTimeLabel);
+            this.Controls.Add(this.startOverButton);
+            this.Controls.Add(this.oneDownButton);
+            this.Controls.Add(dueTimeLabel);
+            this.Controls.Add(openItemCountLabelEnd);
             this.Controls.Add(this.openItemCount);
             this.Controls.Add(this.dueTime);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(openItemCountLabelStart);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Sprint Planning Timer";
             ((System.ComponentModel.ISupportInitialize)(this.openItemCount)).EndInit();
@@ -183,18 +224,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dueTime;
         private System.Windows.Forms.NumericUpDown openItemCount;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button oneDown;
-        private System.Windows.Forms.Button reset;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button oneDownButton;
+        private System.Windows.Forms.Button startOverButton;
         private System.Windows.Forms.Label totalTime;
         private System.Windows.Forms.Label itemTime;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button resetItemButton;
     }
 }

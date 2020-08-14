@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SprintPlanningTimer.Properties;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SprintPlanningTimer
@@ -11,19 +13,7 @@ namespace SprintPlanningTimer
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Reset_Click(object sender, EventArgs e)
-        {
-            ResetValues();
-            oneDown.Enabled = true;
-            timer1.Enabled = true;
-        }
-
-        private void OneDown_Click(object sender, EventArgs e)
-        {
-            openItemCount.Value -= 1;
-            ResetValues();
+            dueTime.Value = DateTime.Now.AddHours(1);
         }
 
         private void ResetValues()
@@ -42,12 +32,48 @@ namespace SprintPlanningTimer
             countdownTotal = dueTime.Value;
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            var test = countdownTotal.TimeOfDay - DateTime.Now.TimeOfDay;
-            totalTime.Text = $"{(int)test.TotalHours}:{test.Minutes:00}:{test.Seconds:00}";
-            var test2 = countdownTime - DateTime.Now;
-            itemTime.Text = $"{(int)test2.TotalHours}:{test2.Minutes:00}:{test2.Seconds:00}";
+            TimeSpan getTimeRemaining(TimeSpan difference) => difference >= TimeSpan.Zero ? difference.Add(new TimeSpan(0, 0, 1)) : difference;
+            string getTimeFormatString(TimeSpan timeRemaining) => ((int)timeRemaining.TotalSeconds < 0 ? "-" : string.Empty) + timeRemaining.ToString(@"h\:mm\:ss");
+            Color getTimeDisplayColor(TimeSpan timeRemaining) => (int)timeRemaining.TotalSeconds < 0 ? Color.Red : Color.Black;
+
+            var totalTimeRemaining = getTimeRemaining(countdownTotal.TimeOfDay - DateTime.Now.TimeOfDay);
+            totalTime.Text = getTimeFormatString(totalTimeRemaining);
+            totalTime.ForeColor = getTimeDisplayColor(totalTimeRemaining);
+
+            var itemTimeRemaining = getTimeRemaining(countdownTime - DateTime.Now);
+            itemTime.Text = getTimeFormatString(itemTimeRemaining);
+            itemTime.ForeColor = getTimeDisplayColor(itemTimeRemaining);
+        }
+
+        private void OneDownButton_Click(object sender, EventArgs e)
+        {
+            openItemCount.Value -= 1;
+            ResetValues();
+            if (openItemCount.Value == 0)
+                StartOverButton_Click(sender, e);
+        }
+
+        private void ResetItemButton_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            oneDownButton.Enabled = true;
+            timer.Enabled = true;
+        }
+
+        private void StartOverButton_Click(object sender, EventArgs e)
+        {
+            bool isStopping = startOverButton.Text == Resources.StartOverButton;
+            if (!isStopping)
+                ResetValues();
+
+            if (openItemCount.Value == 0)
+                return;
+
+            totalTime.Enabled = itemTime.Enabled = oneDownButton.Enabled = resetItemButton.Enabled = timer.Enabled = !isStopping;
+            openItemCount.Enabled = dueTime.Enabled = isStopping;
+            startOverButton.Text = isStopping ? Resources.StartButton : Resources.StartOverButton;
         }
     }
 }
